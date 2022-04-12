@@ -5,7 +5,7 @@ public class ArrayDeque<T> {
     private T[] array;
     private int length;
 
-    public ArrayDeque(){
+    public ArrayDeque() {
         size = 0;
         array = (T[]) new Object[8];
         nextFirst = 4;
@@ -13,7 +13,7 @@ public class ArrayDeque<T> {
         length = 8;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
@@ -62,7 +62,7 @@ public class ArrayDeque<T> {
         length /= 2;
     }
 
-    public void addFirst(T item){
+    public void addFirst(T item) {
         if (size == length - 1) {
             grow();
         }
@@ -70,7 +70,8 @@ public class ArrayDeque<T> {
         array[nextFirst] = item;
         size++;
     }
-    public void addLast(T item){
+
+    public void addLast(T item) {
         if (size == length - 1) {
             grow();
         }
@@ -83,7 +84,7 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         int p = nextFirst;
         while (p != nextLast){
             System.out.print(array[p] + " ");
@@ -91,7 +92,7 @@ public class ArrayDeque<T> {
         }
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         if (length >= 16 && length / size >= 4) {
             shrink();
         }
@@ -104,7 +105,7 @@ public class ArrayDeque<T> {
         return ret;
     }
 
-    public T removeLast(){
+    public T removeLast() {
         if (length >= 16 && length / size >= 4) {
             shrink();
         }
@@ -116,7 +117,7 @@ public class ArrayDeque<T> {
         return array[nextLast];
     }
 
-    public T get(int index){
+    public T get(int index) {
         if (index >= size) {
             return null;
         }
