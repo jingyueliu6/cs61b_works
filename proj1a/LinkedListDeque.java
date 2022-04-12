@@ -1,8 +1,8 @@
 public class LinkedListDeque <T>{
     public class ListNode{
-        public ListNode prev;
-        public T item;
-        public ListNode next;
+        private ListNode prev;
+        private T item;
+        private ListNode next;
 
         public ListNode(){
             prev = null;
@@ -21,8 +21,9 @@ public class LinkedListDeque <T>{
         }
 
     }
-    public int size;
-    public ListNode sentinel;
+    private int size;
+    private ListNode sentinel;
+
     public LinkedListDeque(){
         size = 0;
         sentinel = new ListNode(null, null);
@@ -45,8 +46,7 @@ public class LinkedListDeque <T>{
     }
 
     public boolean isEmpty(){
-        if (size == 0) return true;
-        return false;
+        return size ==0;
     }
 
     public int size(){
@@ -63,6 +63,7 @@ public class LinkedListDeque <T>{
     }
 
     public T removeFirst(){
+        if(size == 0) return null;
         T removeItem = sentinel.next.item;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
@@ -71,6 +72,7 @@ public class LinkedListDeque <T>{
     }
 
     public T removeLast(){
+        if(size == 0) return null;
         T removeItem = sentinel.prev.item;
         sentinel.prev = sentinel.prev.prev;
         sentinel.prev.next = sentinel;
